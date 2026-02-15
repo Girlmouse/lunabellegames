@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LunaBelleGames</title>
+  <meta name="description" content="A quiet collection of interactive moments." />
+  <style>
+    :root{
+      --bg: #ece6dd;          /* warm cream */
+      --ink: #1f1f1f;         /* soft black */
+      --muted: rgba(31,31,31,.65);
+      --card: rgba(255,255,255,.65);
+      --stroke: rgba(31,31,31,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.08);
+      --radius: 22px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 16px;
+    }
+    .wrap{ width:min(980px, 100%); }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      margin-bottom: 16px;
+    }
+    .brand{
+      letter-spacing: .12em;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+    .tagline{
+      margin: 10px 0 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      font-weight: 650;
+    }
+    .sub{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 60ch;
+    }
+    .card{
+      margin-top: 18px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .cardTop{
+      padding: 18px 18px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--stroke);
+      background: rgba(255,255,255,.35);
+    }
+    .cardTitle{
+      font-weight: 650;
+      font-size: 14px;
+      letter-spacing: .02em;
+    }
+    .btns{ display:flex; gap:10px; flex-wrap:wrap; }
+    a.button{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      color: var(--ink);
+      background: rgba(255,255,255,.65);
+      font-weight: 600;
+      font-size: 13px;
+      transition: transform .08s ease, background .2s ease;
+    }
+    a.button:hover{ background: rgba(255,255,255,.9); transform: translateY(-1px); }
+    a.button.primary{
+      background: rgba(31,31,31,.90);
+      color: #fff;
+      border-color: rgba(31,31,31,.2);
+    }
+    a.button.primary:hover{ background: rgba(31,31,31,1); }
+
+    .frame{
+      width: 100%;
+      aspect-ratio: 9 / 16;           /* portrait showcase */
+      max-height: 72vh;
+      background: rgba(255,255,255,.35);
+      display:block;
+    }
+    iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+      background: transparent;
+    }
+    footer{
+      margin-top: 14px;
+      color: rgba(31,31,31,.55);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .tiny a{ color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="brand">LunaBelleGames</div>
+        <div class="tagline">A quiet collection of interactive moments.</div>
+        <p class="sub">
+          Tap, listen, and stay awhile. This is a small showcase in progress—calm, minimal, and made with care.
+        </p>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="cardTop">
+        <div class="cardTitle">Raindrops — City (playable preview)</div>
+        <div class="btns">
+          <!-- Update this link to your exact City scene URL -->
+          <a class="button primary" href="https://girlmouse.github.io/Raindrops.github.io/city.html" target="_blank" rel="noopener">
+            Open Fullscreen
+          </a>
+          <a class="button" href="#play">Play Here ↓</a>
+        </div>
+      </div>
+
+      <div id="play" class="frame">
+        <!-- Update the iframe src to your exact City scene URL -->
+        <iframe
+          src="https://girlmouse.github.io/Raindrops.github.io/city.html"
+          title="Raindrops City Preview"
+          loading="lazy"
+          allow="autoplay; fullscreen"
+        ></iframe>
+      </div>
+    </section>
+
+    <footer>
+      <div class="tiny">© <span id="y"></span> LunaBelleGames</div>
+      <div class="tiny">Built as a calm browser experience. More scenes coming.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
