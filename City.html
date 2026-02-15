@@ -676,7 +676,8 @@ requestAnimationFrame(loop);
  /* === ADD THIS RIGHT HERE === */
 (function () {
   const rain = document.getElementById('rain');
-  if (!rain) return;
+  const canvas = document.getElementById('g');
+  if (!rain || !canvas) return;
 
   rain.volume = 0.35;
 
@@ -684,15 +685,11 @@ requestAnimationFrame(loop);
     rain.play().catch(err => {
       console.log("Audio blocked:", err);
     });
-
-    window.removeEventListener('pointerdown', startRain);
-    window.removeEventListener('touchstart', startRain);
-    window.removeEventListener('keydown', startRain);
   }
 
-  window.addEventListener('pointerdown', startRain, { passive: true });
-  window.addEventListener('touchstart', startRain, { passive: true });
-  window.addEventListener('keydown', startRain);
+  canvas.addEventListener('pointerdown', startRain, { once: true });
+  canvas.addEventListener('touchstart', startRain, { once: true });
+  canvas.addEventListener('click', startRain, { once: true });
 })();
  
 </script>
